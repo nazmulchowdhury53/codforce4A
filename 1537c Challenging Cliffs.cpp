@@ -1,5 +1,4 @@
-
- #include<bits/stdc.h>
+ #include<bits/stdc++.h>
 #include<math.h>
 #include<string.h>
 #include<map>
@@ -8,32 +7,32 @@
 using namespace std;
 
 int main() {
-    int T;
-    cin >> T;
+    int a,c,i,j;
+    cin >>a;
 
-    while (T--) {
-        int n;
-        cin >> n;
+    while (a--) {
+        int b;
+        cin >>b;
 
-        vector<int> heights(n);
-        for (int i = 0; i < n; i++) {
-            cin >> heights[i];
+        vector<int>v(b);
+        for (i = 0; i <b; i++) {
+            cin >>v[i];
         }
-   sort(heights.begin(), heights.end());
-       int min_index = 0;
-        for (int i = 1; i < n; i++) {
-            if (heights[i] - heights[i - 1] < heights[min_index + 1] - heights[min_index]) {
-                min_index = i - 1;
+   sort(v.begin(),v.end());
+      c= 0;
+        for (i = 1; i <b; i++) {
+            if (v[i] -v[i - 1] <v[c+ 1] - v[c]) {
+                c = i - 1;
             }
         }
-        cout << heights[min_index] << " ";
-        for (int i = min_index + 2; i < n; i++) {
-            cout << heights[i] << " ";
+        cout <<v[c] << " ";
+        for (i = c + 2; i <b; i++) {
+            cout << v[i] << " ";
         }
-        for (int i = 0; i < min_index; i++) {
-            cout << heights[i] << " ";
+        for (i = 0; i <c; i++) {
+            cout <<v[i] << " ";
         }
-        cout << heights[min_index + 1] << endl;
+        cout <<v[c + 1] << endl;
     }
 
     return 0;
